@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User tickets</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+<div class="container">
+    <h3>Create new ticket:</h3>
+    <form class="form-horizontal" method="post" id="ticket-form">
+        <div class="form-group">
+            <label for="text">Email:</label>
+            <input type="text" class="form-control" id="email-input" placeholder="Enter return email.">
+        </div>
+        <div class="form-group">
+            <label for="text">Support ticket:</label>
+            <textarea rows="4" class="form-control" id="ticket-input" placeholder="Kerro huolesi"></textarea>
+        </div>
+        <button type="button" onClick="submitToAPI(event)" class="btn btn-success">Submit</button>
+    </form>
+<h4>Your earlier tickets:</h4>
+<p id="tiketit"></p>
+<script type="text/javascript">
+scanDynamo();
+</script>
+</div>
+</body>
+</html>
