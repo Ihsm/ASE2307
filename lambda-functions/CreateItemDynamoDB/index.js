@@ -13,7 +13,7 @@ exports.handler = function (event, context) {
   let ID = uuid4();
   let UserID = 'testi';
   let email = event.email;
-  let status = event.status;
+  let status = event.tila;
   let info = event.info;
 
   let params = {

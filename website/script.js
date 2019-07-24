@@ -54,7 +54,7 @@ xhttp.open("PATCH", "https://bhxuhr4xr0.execute-api.eu-west-1.amazonaws.com/v1/a
 xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 var data = {
    email : $("#email-input").val(),
-   palaute : $("#ticket-input").val()
+   info : $("#ticket-input").val()
  };
 xhttp.send(JSON.stringify(data));
 setTimeout(function(){scanDynamo();},3000);
@@ -66,7 +66,7 @@ function createItemDynamo() {
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   var data = {
      email : $("#email-input").val(),
-     palaute : $("#ticket-input").val()
+     info : $("#ticket-input").val()
    };
   xhttp.send(JSON.stringify(data));
   setTimeout(function(){scanDynamo();},3000);
