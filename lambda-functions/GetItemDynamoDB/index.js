@@ -10,11 +10,11 @@ var table = "ASE2307";
 
 exports.handler = function (event, context) {
     let ID = event.ID;
-    let UserID = 'testi';
+    let UserID = event.userID;
     let email = event.email;
     let tila = event.tila;
     let info = event.info;
-  
+
     let params = {
         TableName:table,
         Key:{

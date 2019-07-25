@@ -9,7 +9,7 @@ const table = 'ASE2307';
 
 exports.handler = function (event, context) {
   let ID = event.ID;
-  let UserID = event.UserID;
+  let UserID = event.userID;
   let email = event.email;
   let tila = event.tila;
   let info = event.info;
@@ -22,7 +22,7 @@ exports.handler = function (event, context) {
       },
   UpdateExpression: "set Tila = :s",
     ExpressionAttributeValues:{
-        ":s": tila    
+        ":s": tila
     },
     ReturnValues:"UPDATED_NEW"
 };

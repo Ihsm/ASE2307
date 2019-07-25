@@ -11,7 +11,7 @@ const table = 'ASE2307';
 
 exports.handler = function (event, context) {
   let ID = uuid4();
-  let UserID = 'testi';
+  let UserID = event.userID;
   let email = event.email;
   let status = event.tila;
   let info = event.info;

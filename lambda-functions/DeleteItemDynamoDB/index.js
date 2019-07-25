@@ -9,12 +9,13 @@ const table = 'ASE2307';
 
 exports.handler = function (event, context) {
     let ID = event.ID;
-  
+    let UserID = event.userID;
+
     let params = {
         TableName:table,
         Key:{
             'ID': ID,
-            'UserID':'testi'
+            'UserID':UserID
         }
     };
 
