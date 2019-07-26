@@ -12,7 +12,7 @@ exports.handler = function (event, context) {
   let UserID = event.userID;
   let email = event.email;
   let tila = event.tila;
-  let info = event.info;
+
 
   var params = {
       TableName:table,
@@ -35,4 +35,36 @@ docClient.update(params, function(err, data) {
         console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
     }
 });
+var mailparams = {
+  Destination: {
+    ToAddresses: [email]
+  },
+  Message: {
+    Body: {
+      Text: {
+       Charset: "UTF-8",
+       Data: "Tikettinne "+ID+" on käsitelty"
+      }
+     },
+     Subject: {
+      Charset: 'UTF-8',
+      Data: 'Tiketti käsitelty'
+     }
+    },
+  Source: 'esko.immonen@gmail.com',
+  ReplyToAddresses: [
+     'esko.immonen@gmail.com'
+  ],
+};
+
+var sendPromise = new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(mailparams).promise();
+
+// Handle promise's fulfilled/rejected states
+sendPromise.then(
+  function(data) {
+    console.log(data.MessageId);
+  }).catch(
+    function(err) {
+    console.error(err, err.stack);
+  });
 };
